@@ -21,15 +21,13 @@ const drive = google.drive({
 const driveController = {
   // Function to upload a file to Google Drive
   uploadFileThroughApi: async (req, res) => {
-    const filePath = path.join(
-      "/home/nishaltaylor/workspace/projects/node-google-drive-file-upload/download.png" // path of the file that we upload
-    );
-    const mimeType = "image/jpeg"; // Change according to the file type (e.g., 'image/jpeg' for images)
-    const fileName = "test.jpg"; // Name the file as we want to upload on drive
+    const filePath = process.env.FILEPATH;
+    const mimeType = "application/sql"; // Change according to the file type (e.g., 'image/jpeg' for images)
+    const fileName = "database.sql"; // Name the file as we want to upload on drive
 
     const fileMetadata = {
       name: fileName,
-      parents: ["1kO8hsGc7IUiD6KXv3GL_dx4Uld3rNTIL"], // paste here folder id if want to upload file in a folder
+      parents: [`${process.env.FOLDER_ID}`], // paste here folder id if want to upload file in a folder
     };
 
     const media = {
@@ -54,15 +52,13 @@ const driveController = {
   },
 
   uploadFile: async () => {
-    const filePath = path.join(
-      "/home/nishaltaylor/workspace/projects/node-google-drive-file-upload/download.png" // path of the file that we upload
-    );
-    const mimeType = "image/jpeg"; // Change according to the file type (e.g., 'image/jpeg' for images)
-    const fileName = "test.jpg"; // Name the file as we want to upload on drive
+    const filePath = process.env.FILEPATH;
+    const mimeType = "application/sql"; // Change according to the file type (e.g., 'image/jpeg' for images)
+    const fileName = "database.sql"; // Name the file as we want to upload on drive
 
     const fileMetadata = {
       name: fileName,
-      parents: ["1kO8hsGc7IUiD6KXv3GL_dx4Uld3rNTIL"], // paste here folder id if want to upload file in a folder
+      parents: [`${process.env.FOLDER_ID}`], // paste here folder id if want to upload file in a folder
     };
 
     const media = {
